@@ -16,6 +16,8 @@ It implements the [whosonfirst/go-whosonfirst-iterate/v2/emitter.Emitter](https:
 
 ## Example
 
+Iterate over all the [sfomuseum-data/sfomuseum-data-flights-*](https://github.com/sfomuseum-data/?q=sfomuseum-data-flights&type=all&language=&sort=) repositories, excluding `sfomuseum-data-flights-YYYY-MM`, cloning each repository to `/tmp` before processing. (Each repository will be deleted after processing).
+
 ```
 package main
 
