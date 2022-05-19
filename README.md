@@ -2,13 +2,17 @@
 
 Go package to implement the `whosonfirst/go-whosonfirst-iterate/v2/emitter.Emitter` interface for iterating multiple repositories in a GitHub organization.
 
+## Motivation
+
+This package is designed for situations where you need to iterate over multiple repositories in a GitHub organization.
+
+Under the hood it is thing wrapper around the [whosonfirst/go-whosonfirst-github](https://github.com/whosonfirst/go-whosonfirst-github) package, used to fetch a list of repositories for an organization, and the [whosonfirst/go-whosonfirst-iterate-git](https://github.com/whosonfirst/go-whosonfirst-iterate-git) to fetch each repository and iterate over its files.
+
+It implements the [whosonfirst/go-whosonfirst-iterate/v2/emitter.Emitter](https://github.com/whosonfirst/go-whosonfirst-iterate) interface so it will work with any existing code and callback functions designed for use with the `go-whosonfirst-iterate` package.
+
 ## Documentation
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/whosonfirst/go-whosonfirst-iterate-organization.svg)](https://pkg.go.dev/github.com/whosonfirst/go-whosonfirst-iterate-organization)
-
-## Important
-
-This is work in progress and may still change. Documentation is incomplete.
 
 ## Example
 
