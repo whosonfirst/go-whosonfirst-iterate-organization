@@ -46,3 +46,4 @@ _Error handling omitted for the sake of brevity._
 
 * https://github.com/whosonfirst/go-whosonfirst-iterate
 * https://github.com/whosonfirst/go-whosonfirst-iterate-git
+* https://github.com/whosonfirst/go-whosonfirst-github

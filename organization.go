@@ -21,6 +21,14 @@ type OrganizationEmitter struct {
 	target string
 }
 
+// NewOrganizationEmitter returns a new `OrganizationEmitter` configured by 'uri' which takes the form
+// of:
+//
+//	org://{PATH}
+//
+// Where {PATH} is an optional path where individual Git repositories should be downloaded for processing. If {PATH} is not defined
+// then Git repositories are download in to, and processed from, memory. If {PATH} is defined any Git repositories downloaded will
+// be remove after processing.
 func NewOrganizationEmitter(ctx context.Context, uri string) (emitter.Emitter, error) {
 
 	u, err := url.Parse(uri)
@@ -36,6 +44,14 @@ func NewOrganizationEmitter(ctx context.Context, uri string) (emitter.Emitter, e
 	return em, nil
 }
 
+// WalkURI fetchesone or more respositories belonging to a GitHub orgnization invoking 'cb' for each file in those respositores.
+// The list of files to process is determined by 'uri' which takes the form of:
+//
+//	{GITHUB_ORGANIZATION}://?prefix={STRING}&exclude={STRING}&access_token={STRING}
+//
+// Where {PREFIX} is zero or more "prefix" parameters to filter the list of repositories by for inclusion; {EXCLUDE} is zero or
+// more "exclude" query parameters to filter the list of repositories by for exclusion; {ACCESS_TOKEN} is an optional GitHub API
+// access token to include with the underlying calls to the GitHub API.
 func (em *OrganizationEmitter) WalkURI(ctx context.Context, cb emitter.EmitterCallbackFunc, uri string) error {
 
 	u, err := url.Parse(uri)
