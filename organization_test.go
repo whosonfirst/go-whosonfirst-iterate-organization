@@ -2,11 +2,11 @@ package organization
 
 import (
 	"context"
-	"io"
 	_ "fmt"
-	"testing"
 	"github.com/whosonfirst/go-whosonfirst-iterate/v2/iterator"
+	"io"
 	"sync/atomic"
+	"testing"
 )
 
 func TestIterateOrganization(t *testing.T) {
@@ -17,7 +17,7 @@ func TestIterateOrganization(t *testing.T) {
 
 	counter := int32(0)
 	expected := int32(37)
-	
+
 	iter_cb := func(ctx context.Context, path string, r io.ReadSeeker, args ...interface{}) error {
 		atomic.AddInt32(&counter, 1)
 		return nil

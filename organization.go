@@ -19,16 +19,18 @@ func init() {
 type OrganizationEmitter struct {
 	emitter.Emitter
 	target string
+	query  url.Values
 }
 
 // NewOrganizationEmitter returns a new `OrganizationEmitter` configured by 'uri' which takes the form
 // of:
 //
-//	org://{PATH}
+//	org://{PATH}?{PARAMETERS}
 //
-// Where {PATH} is an optional path where individual Git repositories should be downloaded for processing. If {PATH} is not defined
-// then Git repositories are download in to, and processed from, memory. If {PATH} is defined any Git repositories downloaded will
-// be remove after processing.
+// Where {PATH} is an optional path where individual Git repositories should be downloaded for processing; {PARAMETERS} is
+// optional and may be any of the valid parameters used in URIs to create a new `whosonfirst/go-whosonfirst-iterate-git.GitEmitter`.
+// If {PATH} is not defined then Git repositories are download in to, and processed from, memory. If {PATH} is defined any Git repositories
+// downloaded will be remove after processing (unless the `?preserve=1` query parameter is present).
 func NewOrganizationEmitter(ctx context.Context, uri string) (emitter.Emitter, error) {
 
 	u, err := url.Parse(uri)
@@ -36,11 +38,12 @@ func NewOrganizationEmitter(ctx context.Context, uri string) (emitter.Emitter, e
 	if err != nil {
 		return nil, fmt.Errorf("Failed to parse URI, %w", err)
 	}
-	
+
 	em := &OrganizationEmitter{
 		target: u.Path,
+		query:  u.Query(),
 	}
-	
+
 	return em, nil
 }
 
@@ -89,6 +92,7 @@ func (em *OrganizationEmitter) WalkURI(ctx context.Context, cb emitter.EmitterCa
 	iterator_uri := url.URL{}
 	iterator_uri.Scheme = "git"
 	iterator_uri.Path = em.target
+	iterator_uri.RawQuery = em.query.Encode()
 
 	iter, err := iterator.NewIterator(ctx, iterator_uri.String(), cb)
 
