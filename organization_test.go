@@ -2,7 +2,7 @@ package organization
 
 import (
 	"context"
-	_ "fmt"
+	"fmt"
 	"github.com/whosonfirst/go-whosonfirst-iterate/v2/iterator"
 	"io"
 	"sync/atomic"
@@ -16,10 +16,11 @@ func TestIterateOrganization(t *testing.T) {
 	iter_uri := "org://"
 
 	counter := int32(0)
-	expected := int32(37)
+	expected := int32(38)
 
 	iter_cb := func(ctx context.Context, path string, r io.ReadSeeker, args ...interface{}) error {
-		atomic.AddInt32(&counter, 1)
+		new_count := atomic.AddInt32(&counter, 1)
+		fmt.Printf("%s %d\n", path, new_count)
 		return nil
 	}
 
@@ -36,6 +37,6 @@ func TestIterateOrganization(t *testing.T) {
 	}
 
 	if counter != expected {
-		t.Fatalf("Unexpected count: %d", counter)
+		t.Fatalf("Unexpected %d count but got: %d", expected, counter)
 	}
 }
