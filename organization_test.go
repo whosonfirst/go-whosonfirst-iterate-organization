@@ -16,7 +16,7 @@ func TestIterateOrganization(t *testing.T) {
 	iter_uri := "org://"
 
 	counter := int32(0)
-	expected := int32(38)
+	expected := int32(40)
 
 	iter_cb := func(ctx context.Context, path string, r io.ReadSeeker, args ...interface{}) error {
 		new_count := atomic.AddInt32(&counter, 1)
