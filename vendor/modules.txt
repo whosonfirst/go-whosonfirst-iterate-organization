@@ -172,7 +172,7 @@ github.com/whosonfirst/go-whosonfirst-github/util
 # github.com/whosonfirst/go-whosonfirst-iterate-git/v2 v2.1.6
 ## explicit; go 1.22
 github.com/whosonfirst/go-whosonfirst-iterate-git/v2
-# github.com/whosonfirst/go-whosonfirst-iterate/v2 v2.4.0
+# github.com/whosonfirst/go-whosonfirst-iterate/v2 v2.4.1
 ## explicit; go 1.18
 github.com/whosonfirst/go-whosonfirst-iterate/v2/emitter
 github.com/whosonfirst/go-whosonfirst-iterate/v2/filters

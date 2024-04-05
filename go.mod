@@ -5,8 +5,7 @@ go 1.22.1
 require (
 	github.com/whosonfirst/go-whosonfirst-github v0.6.2
 	github.com/whosonfirst/go-whosonfirst-iterate-git/v2 v2.1.6
-	github.com/whosonfirst/go-whosonfirst-iterate/v2 v2.4.0
-
+	github.com/whosonfirst/go-whosonfirst-iterate/v2 v2.4.1
 )
 
 require (
