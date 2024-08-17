@@ -3,10 +3,11 @@ package organization
 import (
 	"context"
 	"fmt"
-	"github.com/whosonfirst/go-whosonfirst-iterate/v2/iterator"
 	"io"
 	"sync/atomic"
 	"testing"
+
+	"github.com/whosonfirst/go-whosonfirst-iterate/v2/iterator"	
 )
 
 func TestIterateOrganization(t *testing.T) {
