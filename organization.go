@@ -6,8 +6,9 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/whosonfirst/go-whosonfirst-github/organizations"
 	_ "github.com/whosonfirst/go-whosonfirst-iterate-git/v2"
+	
+	"github.com/whosonfirst/go-whosonfirst-github/organizations"
 	"github.com/whosonfirst/go-whosonfirst-iterate/v2/emitter"
 	"github.com/whosonfirst/go-whosonfirst-iterate/v2/iterator"
 )

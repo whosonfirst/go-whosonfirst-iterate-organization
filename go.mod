@@ -1,4 +1,4 @@
-module github.com/whosonfirst/go-whosonfirst-iterate-organization
+module github.com/whosonfirst/go-whosonfirst-iterate-organization/v2
 
 go 1.22.1
 
