@@ -7,7 +7,7 @@ import (
 	"sync/atomic"
 	"testing"
 
-	"github.com/whosonfirst/go-whosonfirst-iterate/v2/iterator"	
+	"github.com/whosonfirst/go-whosonfirst-iterate/v2/iterator"
 )
 
 func TestIterateOrganization(t *testing.T) {
