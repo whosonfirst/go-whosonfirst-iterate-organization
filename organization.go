@@ -54,12 +54,12 @@ func NewOrganizationEmitter(ctx context.Context, uri string) (emitter.Emitter, e
 		query:  q,
 	}
 
-	if q.Has("dedupe") {
+	if q.Has("_dedupe") {
 
-		v, err := strconv.ParseBool(q.Get("dedupe"))
+		v, err := strconv.ParseBool(q.Get("_dedupe"))
 
 		if err != nil {
-			return nil, fmt.Errorf("Failed to parse '?dedupe=' parameter, %w", err)
+			return nil, fmt.Errorf("Failed to parse '?_dedupe=' parameter, %w", err)
 		}
 
 		if v {
@@ -168,6 +168,9 @@ func (em *OrganizationEmitter) WalkURI(ctx context.Context, cb emitter.EmitterCa
 		iter_q.Set("_retry_after", strconv.Itoa(retry_after))
 	}
 
+	// To do: Add support for go-whosonfirst-iterate-github
+	// https://github.com/whosonfirst/go-whosonfirst-iterate-organization/issues/2
+	
 	iterator_uri := url.URL{}
 	iterator_uri.Scheme = "git"
 	iterator_uri.Path = em.target
@@ -177,8 +180,6 @@ func (em *OrganizationEmitter) WalkURI(ctx context.Context, cb emitter.EmitterCa
 
 	if em.dedupe {
 
-		slog.Info("DEDUPE CB")
-		
 		iter_cb = func(ctx context.Context, path string, r io.ReadSeeker, args ...interface{}) error {
 
 			if em.dedupe {
@@ -186,7 +187,7 @@ func (em *OrganizationEmitter) WalkURI(ctx context.Context, cb emitter.EmitterCa
 				_, exists := em.lookup.LoadOrStore(path, true)
 
 				if exists {
-					slog.Info("Skip because duplicate", "path", path)
+					slog.Debug("Skip record because duplicate", "path", path)
 					return nil
 				}
 			}
