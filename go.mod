@@ -6,7 +6,7 @@ toolchain go1.24.2
 
 require (
 	github.com/whosonfirst/go-whosonfirst-github v0.8.2
-	github.com/whosonfirst/go-whosonfirst-iterate-git/v2 v2.1.10
+	github.com/whosonfirst/go-whosonfirst-iterate-git/v2 v2.2.0
 	github.com/whosonfirst/go-whosonfirst-iterate/v2 v2.6.0
 )
 
