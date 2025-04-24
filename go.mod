@@ -1,13 +1,11 @@
 module github.com/whosonfirst/go-whosonfirst-iterate-organization/v2
 
-go 1.24.0
-
-toolchain go1.24.2
+go 1.24.2
 
 require (
 	github.com/whosonfirst/go-whosonfirst-github v0.8.2
 	github.com/whosonfirst/go-whosonfirst-iterate-git/v2 v2.2.0
-	github.com/whosonfirst/go-whosonfirst-iterate/v2 v2.6.0
+	github.com/whosonfirst/go-whosonfirst-iterate/v2 v2.7.1
 )
 
 require (
