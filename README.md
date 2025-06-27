@@ -2,6 +2,10 @@
 
 Go package to implement the `whosonfirst/go-whosonfirst-iterate/v2/emitter.Emitter` interface for iterating multiple repositories in a GitHub organization.
 
+## Important
+
+This package has been deprecated and is no longer maintained. All of the functionality in this package has been migrated in to [whosonfirst/go-whosonfirst-git/v3](https://github.com/whosonfirst/go-whosonfirst-iterate-git).
+
 ## Motivation
 
 This package is designed for situations where you need to iterate over multiple Who's On First -style repositories in a GitHub organization.
